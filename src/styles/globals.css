@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blush: #F7DCE5;
+  --color-rose: #EAB8C8;
+  --color-burgundy: #641D36;
+  --color-wine: #310E20;
+  --color-ink: #151116;
+  --color-ivory: #FFF8F4;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-hand: "Caveat", cursive;
+  --font-sans: "Jost", system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: #151116;
+  color: #FFF8F4;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: #641D36; color: #F7DCE5; }
+
+.glass {
+  background: linear-gradient(160deg, rgba(255,248,244,.09), rgba(255,248,244,.03));
+  border: 1px solid rgba(247,220,229,.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,248,244,.08);
+}
+.hairline { border: 1px solid rgba(234,184,200,.22); }
+.text-gradient {
+  background: linear-gradient(120deg, #FFF8F4 10%, #F7DCE5 45%, #EAB8C8 75%, #c98ba3 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ribbon {
+  background: linear-gradient(90deg, transparent, rgba(234,184,200,.55), transparent);
+  height: 1px;
+}
+@keyframes floaty { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+@keyframes twinkle { 0%,100% { opacity:.25 } 50% { opacity:1 } }
+@keyframes drift { 0% { transform: translateY(0) translateX(0) } 100% { transform: translateY(-110vh) translateX(24px) } }
+@keyframes eq { 0%,100% { transform: scaleY(.35) } 50% { transform: scaleY(1) } }
+@keyframes glowPulse { 0%,100% { opacity:.55 } 50% { opacity:1 } }
+@keyframes shimmer { 0% { background-position: -200% 0 } 100% { background-position: 200% 0 } }
+.animate-floaty { animation: floaty 5s ease-in-out infinite; }
+.animate-twinkle { animation: twinkle 2.6s ease-in-out infinite; }
+.eq-bar { transform-origin: bottom; animation: eq 1s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+:focus-visible { outline: 2px solid #EAB8C8; outline-offset: 3px; border-radius: 6px; }
